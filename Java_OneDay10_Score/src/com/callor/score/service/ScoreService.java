@@ -31,7 +31,7 @@ public class ScoreService {
 			if (strMenu.equals("1")) {
 				intNum = Integer.valueOf(strMenu);
 				this.inputName();
-				this.inputScore();
+				
 			} else if(strMenu.equals("2")) {
 				this.printList();
 			} else if(strMenu.equals("QUIT")) {
@@ -41,6 +41,7 @@ public class ScoreService {
 				System.out.println("다시 입력하세요!!");
 				continue;
 			}
+			
 		}
 	}
 	
@@ -58,15 +59,15 @@ public class ScoreService {
 				break;
 			} else {
 				scoreVO.setName(name);
+				this.inputScore(scoreVO);
 			}
 			break;
 		}
 	}
 	
 	// 성적 입력
-	public void inputScore() {
-			ScoreVO scoreVO;
-			scoreVO = new ScoreVO();
+	public void inputScore(ScoreVO scoreVO) {
+			
 			System.out.println("=".repeat(50));
 			System.out.println("학생이름의 성적을 입력하세요(성적범위 : 0 ~ 100, 입력을 중단하려면 QUIT");
 			System.out.println("=".repeat(50));
