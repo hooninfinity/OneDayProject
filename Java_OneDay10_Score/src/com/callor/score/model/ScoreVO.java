@@ -3,9 +3,15 @@ package com.callor.score.model;
 public class ScoreVO {
 	
 	private String name;
-	private int kor;
-	private int eng;
-	private int math;
+	private Integer intKor;
+	private Integer intEng;
+	private Integer intMath;
+	private Integer intSci;
+	private Integer intHis;
+	private Integer intTotal;
+	private Float floatAvg;
+	
+	
 	
 	public String getName() {
 		return name;
@@ -13,24 +19,59 @@ public class ScoreVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getKor() {
-		return kor;
+	public Integer getIntKor() {
+		return intKor;
 	}
-	public void setKor(int kor) {
-		this.kor = kor;
+	public void setIntKor(Integer intKor) {
+		this.intKor = intKor;
 	}
-	public int getEng() {
-		return eng;
+	public Integer getIntEng() {
+		return intEng;
 	}
-	public void setEng(int eng) {
-		this.eng = eng;
+	public void setIntEng(Integer intEng) {
+		this.intEng = intEng;
 	}
-	public int getMath() {
-		return math;
+	public Integer getIntMath() {
+		return intMath;
 	}
-	public void setMath(int math) {
-		this.math = math;
+	public void setIntMath(Integer intMath) {
+		this.intMath = intMath;
 	}
+	public Integer getIntSci() {
+		return intSci;
+	}
+	public void setIntSci(Integer intSci) {
+		this.intSci = intSci;
+	}
+	public Integer getIntHis() {
+		return intHis;
+	}
+	public void setIntHis(Integer intHis) {
+		this.intHis = intHis;
+	}
+	public Integer getIntTotal() {
+		return intTotal;
+	}
+	public void setIntTotal(Integer intTotal) {
+		this.intTotal = intTotal;
+	}
+	public Float getFloatAvg() {
+		return floatAvg;
+	}
+	public void setFloatAvg(Float floatAvg) {
+		this.floatAvg = floatAvg;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
