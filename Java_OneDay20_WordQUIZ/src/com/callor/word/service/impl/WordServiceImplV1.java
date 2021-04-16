@@ -20,6 +20,7 @@ public class WordServiceImplV1 implements WordService {
 
 	protected List<WordVO> wordList;
 	protected Scanner scan;
+	protected Integer count;
 
 	protected final int 영어 = 0;
 	protected final int 한글 = 1;
@@ -92,7 +93,6 @@ public class WordServiceImplV1 implements WordService {
 	public void viewWord() {
 		// TODO 추출된 데이터와 입력하는 값이 일치해야 하는 문제 만들기
 		Random rnd = new Random();
-		Integer count = 10;
 
 		while (true) {
 
@@ -212,11 +212,7 @@ public class WordServiceImplV1 implements WordService {
 		try {
 			fileWriter = new FileWriter(strFileName);
 			out = new PrintWriter(fileWriter);
-			
-			
-			
-			
-			
+			out.print(count);
 			out.flush();
 			out.close();
 		} catch (IOException e) {
