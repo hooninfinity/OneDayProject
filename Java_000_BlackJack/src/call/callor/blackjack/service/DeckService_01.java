@@ -14,9 +14,9 @@ public class DeckService_01 {
 	List<DeckVO> deckList;
 	// suits(무늬) : 다이아몬트, 하트, 스페이드, 클럽
 	String suit = "다이아몬드(◆), 하트(♥), 스페이드(♠), 클로버(♣)";
-	String[] arrSuits = new String[] {"다이아몬드(◆), 하트(♥), 스페이스(♠), 클로버(♣)"};
-	/// cardNums(카드 숫자) :  2, 3, 4, 5, 6, 7, 8, 9, 10, A(1), K(10), J(10), Q(10)
-	String cardNums = "A234567890KJQ";
+	String[] arrSuit = new String[] {"다이아몬드(◆), 하트(♥), 스페이스(♠), 클로버(♣)"};
+	/// denomination(카드 숫자) :  2, 3, 4, 5, 6, 7, 8, 9, 10, A(1), K(10), J(10), Q(10)
+	String denomination = "A234567890KJQ";
 	
 	public DeckService_01() {
 		// TODO deckList 생성
@@ -25,7 +25,13 @@ public class DeckService_01 {
 	
 	// 리스트를 만들어서 외부에서 가져갈 수 있도록
 	public List<DeckVO> getDeck(){
-		Collections.shuffle(this.deckList);
+		int nSize = deckList.size();
+		for(int i = 0 ; i < nSize ; i++) {
+			Collections.shuffle(this.deckList);
+		}
+//		for(DeckVO vo : deckList) {
+//			Collections.shuffle(this.deckList);
+//		} 
 		return this.deckList;
 	}
 	
@@ -33,37 +39,35 @@ public class DeckService_01 {
 	
 	public void makeDeck() {
 		// TODO 카드를 생성하는 method
-		String[] cardNum = cardNums.split(""); // 카드숫자를 쪼개서 배열로 생성
-		int intValue = 0;
-		for(String suit : arrSuits) {
-			for(String value : cardNum ) {
+		String[] denoms = denomination.split(""); // 카드숫자를 쪼개서 배열로 생성
+		
+		for(String suit : arrSuit) {
+			for(String denom : denoms ) {
 				// 각 무늬가 한번 실행될때 카드숫자를 하나씩 무늬에 넣는다
-				// 숫자는 그대로 대입하고, A는 1, KJQ는 10으로
 				// 무늬와 카드 숫자를 조합한 값의 변수 value 사용
 				// 2~9까지는 그대로, A는 1로, JQK는 10으로
+				int intValue = 0;
 				try {
-					intValue = Integer.valueOf(value); // 2 ~ 9 까지의 값이 입력되었을때
-				} catch (NumberFormatException e) {
-					if (value.equals("A")) {
-						intValue = 1;
-					} else if (value.equals("J")){
-						intValue = 10;
-					} else if (value.equals("K")){
-						intValue = 10;
-					} else if (value.equals("Q")){
+					intValue = Integer.valueOf(denom); // 2 ~ 9 까지의 값이 입력되었을때
+					if(intValue == 0) {
 						intValue = 10;
 					}
+				} catch (Exception e) {
+					if (denom.equals("A")) {
+						intValue = 1;
+					} else {
+						intValue = 10;
+					}
+					DeckVO deckVO = new DeckVO();
+					deckVO.setSuit(suit);
+					deckVO.setDenomination(denom);
+					deckVO.setValue(intValue);
+					deckList.add(deckVO);
 				}
-				
-				DeckVO deckVO = new DeckVO();
-				deckVO.setSuits(suit);
-				deckVO.setCardNums(value);
-				deckVO.setValue(intValue);
-				deckList.add(deckVO);
 			}
 		}
 		
-	}
+	} // end makeDeck()
 	
 
 }

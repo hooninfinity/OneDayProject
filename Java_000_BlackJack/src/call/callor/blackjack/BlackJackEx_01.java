@@ -12,6 +12,7 @@ public class BlackJackEx_01 {
 		DeckService_01 dService = new DeckService_01();
 		dService.makeDeck();
 		
+		// getDeck을 사용하여 리스트를 가져온다 
 		List<DeckVO> deckList = dService.getDeck();
 		for(DeckVO vo : deckList) {
 			System.out.println(vo);

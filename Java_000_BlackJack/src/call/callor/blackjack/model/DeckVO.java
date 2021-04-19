@@ -9,26 +9,27 @@ package call.callor.blackjack.model;
  * 21을 초과하면 초과한 쪽이 게임에서 진다
  * 
  * suits(무늬) : 다이아몬트, 하트, 스페이드, 클럽
- * cardNums(카드 숫자) :  2, 3, 4, 5, 6, 7, 8, 9, 10, A(1), K(10), J(10), Q(10)
+ * denomination(카드 숫자) :  2, 3, 4, 5, 6, 7, 8, 9, 10, A(1), K(10), J(10), Q(10)
  */
 public class DeckVO {
 	
-	private String suits; // 무늬
-	private String cardNums; // 카드 숫자
+	private String suit; // 무늬
+	private String denomination; // 카드 숫자
 	private int value; // 무늬와 카드 숫자를 조합한 값
 	
 	
-	public String getSuits() {
-		return suits;
+	
+	public String getSuit() {
+		return suit;
 	}
-	public void setSuits(String suits) {
-		this.suits = suits;
+	public void setSuit(String suit) {
+		this.suit = suit;
 	}
-	public String getCardNums() {
-		return cardNums;
+	public String getDenomination() {
+		return denomination;
 	}
-	public void setCardNums(String cardNums) {
-		this.cardNums = cardNums;
+	public void setDenomination(String denomination) {
+		this.denomination = denomination;
 	}
 	public int getValue() {
 		return value;
@@ -38,8 +39,10 @@ public class DeckVO {
 	}
 	@Override
 	public String toString() {
-		return "DeckVO [suits=" + suits + ", cardNums=" + cardNums + ", value=" + value + "]";
+		return "DeckVO [suit=" + suit + ", denomination=" + denomination + ", value=" + value + "]";
 	}
+	
+	
 	
 
 	
