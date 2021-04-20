@@ -13,7 +13,7 @@ public class DeckService_01 {
 	// 생성된 카드를 저장할 리스트
 	List<DeckVO> deckList;
 	// suits(무늬) : 다이아몬트, 하트, 스페이드, 클럽
-	String suit = "다이아몬드(◆), 하트(♥), 스페이드(♠), 클로버(♣)";
+	String suit = "다이아몬드(◆):하트(♥):스페이드(♠):클로버(♣)";
 	String[] arrSuit = new String[] {"다이아몬드(◆), 하트(♥), 스페이스(♠), 클로버(♣)"};
 	/// denomination(카드 숫자) :  2, 3, 4, 5, 6, 7, 8, 9, 10, A(1), K(10), J(10), Q(10)
 	String denomination = "A234567890KJQ";
