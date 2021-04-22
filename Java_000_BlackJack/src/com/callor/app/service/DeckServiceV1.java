@@ -1,6 +1,7 @@
 package com.callor.app.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -12,14 +13,21 @@ public class DeckServiceV1 {
 	String strSuit = "다이아(◆):하트(♡):스페(♠):클로버(♣)";
 	String strDenomi = "A234567890KQJ";
 	
-	public DeckVO getDeck() {
-		Random rnd = new Random();
-		int nSize = deckList.size();
-		int deckIndex = rnd.nextInt(nSize);
-		
-		DeckVO retDeckVO = deckList.get(deckIndex);
-		deckList.remove(deckIndex);
-		return retDeckVO;
+//	public DeckVO getDeck() {
+//		Random rnd = new Random();
+//		int nSize = deckList.size();
+//		int deckIndex = rnd.nextInt(nSize);
+//		
+//		DeckVO retDeckVO = deckList.get(deckIndex);
+//		deckList.remove(deckIndex);
+//		return retDeckVO;
+//	}
+	
+	public List<DeckVO> getDeck(){
+		for(DeckVO vo : deckList) {
+			Collections.shuffle(this.deckList);
+		}
+		return this.deckList;
 	}
 	
 	public DeckServiceV1() {

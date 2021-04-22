@@ -9,7 +9,7 @@ public class PlayerService {
 	// 각 플레이어(딜러포함)가 받은 카드를 저장할 List
 	List<DeckVO> myDeckList;
 	
-	// deck에서 한장씩 플레이어에게 전달할 카드들
+	// deck에서 한장씩 플레이어에게 전달할 카드들, 공용카드덱
 	List<DeckVO> pubDeckList;
 	String playerName;
 	
@@ -33,7 +33,7 @@ public class PlayerService {
 			 // vo의 getValue() method의 합을 sumValue 변수에 누적 
 			sumValue += vo.getValue();
 		}
-		return sumValue();
+		return sumValue;
 	}
 	
 	// 각 플레이어들이 hit를 했을때 수행할 method
