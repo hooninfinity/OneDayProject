@@ -18,57 +18,72 @@ public class GameStart {
 
 		PlayerService 딜러 = new PlayerService(deckList);
 
-		PlayerService 게이머 = new PlayerService(deckList, "게이머");
+		PlayerService 플레이어 = new PlayerService(deckList, "플레이어");
 
+		
 		System.out.println("=".repeat(50));
 		System.out.println("게임을 시작합니다");
 
 		딜러.hit();
-		게이머.hit();
+		플레이어.hit();
 
 		딜러.hit();
-		게이머.hit();
-
-		if (딜러.sumValue() < 17)
+		플레이어.hit();
+		
+		System.out.println("-".repeat(50));
+		System.out.println("딜러와 플레이어가 두번 뽑았습니다");
+		if (딜러.sumValue() < 17) {
+			System.out.println("딜러의 점수가 16이하입니다! 한번 더 뽑습니다!!");
 			딜러.hit();
+		}
 
 		System.out.println("=".repeat(50));
 		System.out.println("딜러의 턴이 끝났습니다");
 		System.out.println("-".repeat(50));
 		System.out.println("딜러의 점수 : " + 딜러.sumValue());
-		System.out.println("게이머의 점수 : " + 게이머.sumValue());
+		System.out.println("플레이어의 점수 : " + 플레이어.sumValue());
 		if (딜러.sumValue() > 21) {
 			System.out.println("딜러 LOSS!!");
 			return;
 		}
-		System.out.println("게이머가 한장을 더 뽑으시겠습니까? ( YES:1 NO:2 )");
-		System.out.print(">> ");
-		Integer selectNum = scan.nextInt();
-		if (selectNum == 1) {
-			게이머.hit();
-			System.out.println();
-			System.out.println("딜러의 점수 : " + 딜러.sumValue());
-			System.out.println("게이머의 점수 : " + 게이머.sumValue());
-			if (딜러.sumValue() > 게이머.sumValue()) {
-				System.out.println("딜러 Win!!");
-			} else if (게이머.sumValue() > 21) {
-				System.out.println("딜러 Win!!");
-			} else {
-				System.out.println("게이머 Win!!");
-			}
-		}
 		
-		if (selectNum == 2) {
-			System.out.println();
-			System.out.println("딜러의 점수 : " + 딜러.sumValue());
-			System.out.println("게이머의 점수 : " + 게이머.sumValue());
-			if (딜러.sumValue() > 게이머.sumValue()) {
-				System.out.println("딜러 Win!!");
-			} else {
-				System.out.println("게이머 Win!!");
+		while(true) {
+			System.out.println("플레이어가 한장을 더 뽑으시겠습니까? ( YES:1 NO:2 )");
+			System.out.print(">> ");
+			Integer selectNum = scan.nextInt();
+			if (selectNum == 1) {
+				플레이어.hit();
+				System.out.println();
+				System.out.println("딜러의 점수 : " + 딜러.sumValue());
+				System.out.println("플레이어의 점수 : " + 플레이어.sumValue());
+				
+				if (딜러.sumValue() > 플레이어.sumValue()) {
+					System.out.println("딜러 Win!!");
+					break;
+				} else if (플레이어.sumValue() > 21) {
+					System.out.println("딜러 Win!!");
+					break;
+				} else if (플레이어.sumValue() < 21) {
+					continue;
+				}
 			}
-		}
+			
+			if (selectNum == 2) {
+				System.out.println();
+				System.out.println("딜러의 점수 : " + 딜러.sumValue());
+				System.out.println("플레이어의 점수 : " + 플레이어.sumValue());
+				if (딜러.sumValue() == 플레이어.sumValue()) {
+					System.out.println("딜러와 플레이어의 점수가 같습니다");
+					System.out.println("무승부!!!");
+				} else if (딜러.sumValue() > 플레이어.sumValue()) {
+					System.out.println("딜러 Win!!");
+				} else {
+					System.out.println("플레이어 Win!!");
+				}
+			}
+			
+		} // end while
 
-	}
+	} // end main
 
 }

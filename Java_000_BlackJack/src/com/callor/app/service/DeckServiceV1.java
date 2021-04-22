@@ -10,7 +10,7 @@ import com.callor.app.model.DeckVO;
 public class DeckServiceV1 {
 	
 	protected List<DeckVO> deckList;
-	String strSuit = "다이아(◆):하트(♡):스페(♠):클로버(♣)";
+	String strSuit = "다이아몬드(◆):하트(♡):스페이드(♠):클로버(♣)";
 	String strDenomi = "A234567890KQJ";
 	
 //	public DeckVO getDeck() {

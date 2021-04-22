@@ -41,7 +41,7 @@ public class DeckVO {
 	}
 	@Override
 	public String toString() {
-		return "DeckVO [suit=" + suit + ", denomination=" + denomination + ", value=" + value + "]";
+		return " [무늬=" + suit + ", 숫자=" + denomination + ", 점수=" + value + "]";
 	}
 	
 	
