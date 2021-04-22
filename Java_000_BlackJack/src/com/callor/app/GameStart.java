@@ -77,8 +77,10 @@ public class GameStart {
 					System.out.println("무승부!!!");
 				} else if (딜러.sumValue() > 플레이어.sumValue()) {
 					System.out.println("딜러 Win!!");
+					break;
 				} else {
 					System.out.println("플레이어 Win!!");
+					break;
 				}
 			}
 			
