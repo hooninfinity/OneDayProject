@@ -29,24 +29,37 @@ public class GameStart {
 		딜러.hit();
 		게이머.hit();
 
+		if (딜러.sumValue() < 17)
+			딜러.hit();
+
+		System.out.println("=".repeat(50));
 		System.out.println("딜러의 턴이 끝났습니다");
 		System.out.println("-".repeat(50));
 		System.out.println("딜러의 점수 : " + 딜러.sumValue());
 		System.out.println("게이머의 점수 : " + 게이머.sumValue());
+		if (딜러.sumValue() > 21) {
+			System.out.println("딜러 LOSS!!");
+			return;
+		}
 		System.out.println("게이머가 한장을 더 뽑으시겠습니까? ( YES:1 NO:2 )");
 		System.out.print(">> ");
 		Integer selectNum = scan.nextInt();
 		if (selectNum == 1) {
 			게이머.hit();
+			System.out.println();
 			System.out.println("딜러의 점수 : " + 딜러.sumValue());
 			System.out.println("게이머의 점수 : " + 게이머.sumValue());
 			if (딜러.sumValue() > 게이머.sumValue()) {
 				System.out.println("딜러 Win!!");
+			} else if (게이머.sumValue() > 21) {
+				System.out.println("딜러 Win!!");
 			} else {
 				System.out.println("게이머 Win!!");
 			}
-			
-		} else if(selectNum == 2) {
+		}
+		
+		if (selectNum == 2) {
+			System.out.println();
 			System.out.println("딜러의 점수 : " + 딜러.sumValue());
 			System.out.println("게이머의 점수 : " + 게이머.sumValue());
 			if (딜러.sumValue() > 게이머.sumValue()) {
@@ -55,8 +68,6 @@ public class GameStart {
 				System.out.println("게이머 Win!!");
 			}
 		}
-		
-		
 
 	}
 
