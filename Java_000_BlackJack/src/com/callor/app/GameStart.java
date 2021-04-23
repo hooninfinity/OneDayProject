@@ -48,6 +48,7 @@ public class GameStart {
 		}
 		
 		while(true) {
+			System.out.println("-".repeat(50));
 			System.out.println("플레이어가 한장을 더 뽑으시겠습니까? ( YES:1 NO:2 )");
 			System.out.print(">> ");
 			Integer selectNum = scan.nextInt();
@@ -56,7 +57,6 @@ public class GameStart {
 				System.out.println();
 				System.out.println("딜러의 점수 : " + 딜러.sumValue());
 				System.out.println("플레이어의 점수 : " + 플레이어.sumValue());
-				
 				if (딜러.sumValue() > 플레이어.sumValue()) {
 					System.out.println("딜러 Win!!");
 					break;
