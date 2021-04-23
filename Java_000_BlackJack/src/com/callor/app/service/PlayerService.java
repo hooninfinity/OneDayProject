@@ -79,11 +79,18 @@ public class PlayerService {
 		System.out.println("=".repeat(50));
 		System.out.println("게임을 시작합니다");
 
-		딜러.hit();
-		플레이어.hit();
-
-		딜러.hit();
-		플레이어.hit();
+		String enter1 = scan.nextLine();
+		if (enter1.equals("")) {
+			딜러.hit();
+			플레이어.hit();
+			System.out.println("한 장씩 더 뽑으시겠습니까?(ENTER 입력)");
+			System.out.print(">> ");
+		}
+		String enter2 = scan.nextLine();
+		if (enter2.equals("")) {
+			딜러.hit();
+			플레이어.hit();
+		}
 		
 		System.out.println("-".repeat(50));
 		System.out.println("딜러와 플레이어가 두번 뽑았습니다");
