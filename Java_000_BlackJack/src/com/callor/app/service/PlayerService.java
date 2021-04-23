@@ -39,17 +39,11 @@ public class PlayerService {
 
 	// 각 플레이어들이 hit를 했을때 수행할 method
 	public void hit() {
-		// playerName이 "딜러" 이고 점수계산의 합이 16점이 넘으면,
-		if (this.playerName.equals("딜러") && this.sumValue() > 16) {
-			System.out.println("딜러점수 : " + this.sumValue());
-			System.out.println("딜러 Hit 금지!!");
-		} else {
-			// 아니면 받은카드를 카드 리스트에 추가(내 카드리스트에 pubDeckList의 0번째 카드를 더함)
-			myDeckList.add(pubDeckList.get(0));
+		// 받은카드를 카드 리스트에 추가(내 카드리스트에 pubDeckList의 0번째 카드를 더함)
+		myDeckList.add(pubDeckList.get(0));
 
-			// 받을 카드에서 0번째 한장 제외
-			pubDeckList.remove(0);
-		}
+		// 받을 카드에서 0번째 한장 제외
+		pubDeckList.remove(0);
 
 		System.out.println("=".repeat(50));
 		System.out.println(playerName);
@@ -83,7 +77,7 @@ public class PlayerService {
 		딜러.hit();
 		플레이어.hit();
 
-		while(딜러.sumValue() < 17) {
+		while (딜러.sumValue() < 17) {
 			딜러.hit();
 			continue;
 		}
@@ -93,7 +87,7 @@ public class PlayerService {
 		System.out.println("딜러의 점수 : " + 딜러.sumValue());
 		System.out.println("플레이어의 점수 : " + 플레이어.sumValue());
 		if (딜러.sumValue() == 21) {
-			System.out.println("딜러 Win!!");
+			System.out.println("BlackJack!!딜러 Win!!");
 			return;
 		} else if (딜러.sumValue() > 21) {
 			System.out.println("딜러 LOSS!!");
@@ -111,7 +105,7 @@ public class PlayerService {
 				System.out.println("딜러의 점수 : " + 딜러.sumValue());
 				System.out.println("플레이어의 점수 : " + 플레이어.sumValue());
 				if (플레이어.sumValue() == 21) {
-					System.out.println("플레이어 Win!!");
+					System.out.println("BlackJack!! 플레이어 Win!!");
 					break;
 				} else if (플레이어.sumValue() < 21) {
 					continue;
@@ -131,6 +125,7 @@ public class PlayerService {
 				if (딜러.sumValue() == 플레이어.sumValue()) {
 					System.out.println("딜러와 플레이어의 점수가 같습니다");
 					System.out.println("무승부!!!");
+					break;
 				} else if (딜러.sumValue() > 플레이어.sumValue()) {
 					System.out.println("딜러 Win!!");
 					break;
