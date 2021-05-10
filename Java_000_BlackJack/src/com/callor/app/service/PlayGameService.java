@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.callor.app.model.DeckVO;
+
 // 게임을 실행하고 승패를 판단하는 클래스
 public class PlayGameService {
 
@@ -13,7 +14,7 @@ public class PlayGameService {
 		// DeckServiceV1 객체를 생성해서 덱을 만드는 makeDeck() method 호출
 		DeckServiceV1 dS = new DeckServiceV1();
 		dS.makeDeck();
-		// getDeck() method를 호출해서 리스트를 생성함 
+		// getDeck() method를 호출해서 리스트를 생성함
 		List<DeckVO> deckList = dS.getDeck();
 		// deckList 타입만 사용하는 딜러 생성
 		PlayerService 딜러 = new PlayerService(deckList);
@@ -65,9 +66,6 @@ public class PlayGameService {
 					break;
 				} else if (플레이어.sumValue() < 21) {
 					continue;
-				} else if (딜러.sumValue() > 플레이어.sumValue()) {
-					System.out.println("딜러 Win!!");
-					break;
 				} else if (플레이어.sumValue() > 21) {
 					System.out.println("딜러 Win!!");
 					break;

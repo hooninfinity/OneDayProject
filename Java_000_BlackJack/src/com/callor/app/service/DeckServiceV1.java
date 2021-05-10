@@ -46,11 +46,11 @@ public class DeckServiceV1 {
 		// 무늬 suits를 suit 변수에 한번 담을때마다 문자열 A234567890KQJ 반복
 		for(String suit : suits) {
 			for(String denom : denoms) {
-				// 예외처리문을 사용해서 2~9 까지의 값은 그대로 점수 생성
-				// 숫자가 0이면 10점
 				Integer intValue = 0;
+				// 예외처리문을 사용해서 2~9 까지의 값은 그대로 점수 생성
 				try {
 					intValue = Integer.valueOf(denom);
+					// 숫자가 0이면 10점
 					if (intValue == 0) intValue = 10;
 				} catch (NumberFormatException e) {
 					// denom 문자열이 A,K,Q,J인 경우 Exception 발생, 이걸 이용
