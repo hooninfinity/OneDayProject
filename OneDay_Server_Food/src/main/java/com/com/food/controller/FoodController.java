@@ -32,19 +32,7 @@ public class FoodController extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		
 		if (subPath.equals("/seq")) {
-			
-			String strSeq = req.getParameter("id");
-			
-			if (strSeq == null || strSeq.equals("")) { // null값이거나 또는 아무것도 입력하지 않고 전송하면
-				out.println("번호가 없음");
-				out.close();
-			} else {
-				Long nSeq = Long.valueOf(strSeq);
-				FoodDTO foodDTO = fService.f
-				
-			}
-			
-			
+			 req.getRequestDispatcher(subPath).forward(req, resp);
 		}
 		
 		

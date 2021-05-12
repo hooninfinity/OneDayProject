@@ -32,6 +32,9 @@ SELECT COUNT(*) FROM tbl_foods;
 SELECT COUNT(*) FROM tbl_company;
 SELECT COUNT(*) FROM tbl_items;
 
+-- 외래키는 두 테이블을 서로 연결하는 데 사용되는 키이다.
+-- 외래키가 포함된 테이블을 자식 테이블이라고 하고 외래키 값을 제공하는
+--      테이블을 부모 테이블이라한다.
 
 -- tbl_foods 테이블의 제조사코드와 tbl_company 간에 외래키 관계 선언
 ALTER TABLE tbl_foods -- FK를 설정할 TABLE
